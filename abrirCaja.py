@@ -4,9 +4,9 @@ import win32print # Librería necesaria para interactuar con las impresoras de W
 
 def abrirCaja (impresora) :
 	impresoraHandler = win32print.OpenPrinter (impresora) # Iniciamos el punto a través del cual nos comunicaremos con la impresora.
-	comandoAbrirCaja = chr(27)+chr(112)+chr(0)+chr(25)+chr(250) # Serie de carácteres que la impresora interpreta como comando para abrir la caja.
-	win32print.StartDocPrinter (impresoraHandler, 1, ('Abrir caja.', None, 'RAW'))  # Iniciamos una petición de impresión con datos básico y descripcion del trabajo.
-	win32print.WritePrinter (impresoraHandler, comandoAbrirCaja.encode("utf-8")) # Pasamos el comando para abrir caja a la petición de impresión.
+	comandoAbrirCaja = chr (27) + chr (112) + chr (0) + chr (25) + chr (250) # Variable con serie de carácteres que la impresora interpreta como comando para abrir la caja conectada a ella.
+	win32print.StartDocPrinter (impresoraHandler, 1, ('Abrir caja.', None, 'RAW')) # Iniciamos una petición de impresión con datos básico y descripcion del trabajo.
+	win32print.WritePrinter (impresoraHandler, comandoAbrirCaja.encode ("utf-8")) # Pasamos el comando para abrir caja a la petición de impresión.
 	win32print.EndDocPrinter (impresoraHandler) # Finalizamos la petición de impresión.
 	win32print.ClosePrinter (impresoraHandler) # Cerramos la petición de impresión.
 
